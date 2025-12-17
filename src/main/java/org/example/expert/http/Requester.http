@@ -1,0 +1,26 @@
+POST http://localhost:8080/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NTk3NzMwMSwiaWF0IjoxNzY1OTczNzAxfQ.UCgHw4NxYrctcE_TkxCMWxva2y0wGJcMg2lgD7QttvM
+Content-Type: application/json
+
+{
+  "title": "왜요?",
+  "contents": "무슨 고민있어요?"
+}
+
+###
+###
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "email": "email@email.com",
+  "password": "Password!2",
+  "userRole": "USER",
+  "nickname": "안녕하세요"
+}
+
+###
+@todoId = 1
+GET http://localhost:8080/todos/{{todoId}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NTk3NzMwMSwiaWF0IjoxNzY1OTczNzAxfQ.UCgHw4NxYrctcE_TkxCMWxva2y0wGJcMg2lgD7QttvM
+
