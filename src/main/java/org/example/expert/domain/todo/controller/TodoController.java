@@ -12,6 +12,8 @@ import org.example.expert.domain.todo.service.TodoService;
 import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -24,9 +26,11 @@ public class TodoController {
 
     @PostMapping("/todos")
     public ResponseEntity<TodoSaveResponse> saveTodo(
-            @Auth AuthUser authUser,
             @Valid @RequestBody TodoSaveRequest todoSaveRequest
     ) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        AuthUser authUser = (AuthUser) auth.getPrincipal();
+
         return ResponseEntity.ok(todoService.saveTodo(authUser, todoSaveRequest));
     }
 

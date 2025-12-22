@@ -1,9 +1,9 @@
 POST http://localhost:8080/todos
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NTk3NzMwMSwiaWF0IjoxNzY1OTczNzAxfQ.UCgHw4NxYrctcE_TkxCMWxva2y0wGJcMg2lgD7QttvM
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NjAyMjg1MCwiaWF0IjoxNzY2MDE5MjUwfQ.Baea0PMewmXCiBLeNY7yYb1RWsJOX7NyoZ5LelR6Jlg
 Content-Type: application/json
 
 {
-  "title": "왜요?",
+  "title": "spring",
   "contents": "무슨 고민있어요?"
 }
 
@@ -22,5 +22,8 @@ Content-Type: application/json
 ###
 @todoId = 1
 GET http://localhost:8080/todos/{{todoId}}
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NTk3NzMwMSwiaWF0IjoxNzY1OTczNzAxfQ.UCgHw4NxYrctcE_TkxCMWxva2y0wGJcMg2lgD7QttvM
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NjAyMjg1MCwiaWF0IjoxNzY2MDE5MjUwfQ.Baea0PMewmXCiBLeNY7yYb1RWsJOX7NyoZ5LelR6Jlg
 
+###
+GET http://localhost:8080/search?page=0&size=10&query=spring
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJ1c2VyUm9sZSI6IlVTRVIiLCJuaWNrbmFtZSI6IuyViOuFle2VmOyEuOyalCIsImV4cCI6MTc2NjAyMjg1MCwiaWF0IjoxNzY2MDE5MjUwfQ.Baea0PMewmXCiBLeNY7yYb1RWsJOX7NyoZ5LelR6Jlg
