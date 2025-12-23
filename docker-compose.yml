@@ -1,0 +1,19 @@
+services:
+  spring:
+    build: .
+    container_name: spring-compose
+    env_file: .env
+    environment:
+      SPRING_DATASOURCE_URL: ${DATA_SOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${DATA_SOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DATA_SOURCE_PASSWORD}
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-net
+
+volumes:
+  mysql_data:
+
+networks:
+  spring-net:

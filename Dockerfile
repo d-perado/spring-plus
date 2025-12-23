@@ -1,23 +1,12 @@
-# Java 21 slim 이미지 사용 FROM eclipse-temurin:21-jdk-jammy # jar 파일을 컨테이너 내부에 복사 COPY build/libs/*.jar app.jar # 외부 호스트 8080 포트로 노출 EXPOSE 8080 # 실행 명령어 CMD ["java", "-jar", "app.jar"]
+# 1단계: 빌드 (Java 17)
+FROM gradle:8.5-jdk17 AS builder
+WORKDIR /app
+COPY . .
+RUN gradle build -x test
 
-# Java 21 slim 이미지 사용
-
-FROM eclipse-temurin:21-jdk-jammy
-
-
-
-# jar 파일을 컨테이너 내부에 복사
-
-COPY build/libs/*.jar app.jar
-
-
-
-# 외부 호스트 8080 포트로 노출
-
+# 2단계: 실행 (Java 21 가능)
+FROM eclipse-temurin:21-jre-jammy
+WORKDIR /app
+COPY --from=builder /app/build/libs/*.jar app.jar
 EXPOSE 8080
-
-
-
-# 실행 명령어
-
 CMD ["java", "-jar", "app.jar"]
