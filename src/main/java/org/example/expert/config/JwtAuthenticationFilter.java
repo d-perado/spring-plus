@@ -37,7 +37,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String uri = request.getRequestURI();
 
         // 인증 제외
-        if (uri.startsWith("/auth")) {
+        if (uri.startsWith("/auth")||uri.startsWith("/actuator")||uri.startsWith("/presigned-url")) {
             filterChain.doFilter(request, response);
             return;
         }
