@@ -18,7 +18,6 @@ import java.time.Duration;
 @RestController
 public class S3PresignedController {
 
-    private final S3Config s3Config;
     private final String bucketName = "dperado-spring-plus-bucket";
 
     private final S3Presigner presigner;
@@ -32,7 +31,6 @@ public class S3PresignedController {
                 )
                 .region(Region.AP_NORTHEAST_2)
                 .build();
-        this.s3Config = s3Config;
     }
 
     @GetMapping("/presigned-url")
@@ -45,7 +43,7 @@ public class S3PresignedController {
 
         GetObjectPresignRequest presignRequest = GetObjectPresignRequest.builder()
                 .getObjectRequest(getObjectRequest)
-                .signatureDuration(Duration.ofMinutes(60)) // 1시간 유효
+                .signatureDuration(Duration.ofMinutes(60))
                 .build();
 
         URL presignedUrl = presigner.presignGetObject(presignRequest).url();
